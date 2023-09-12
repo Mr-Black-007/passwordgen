@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="inputBox">
+        <h1>Random Password Generator</h1>
+
+        <input type="text" name="" id="password" placeholder="Click Generate Password"
+        readonly="">
+        
+        <img src="copy.png" alt="" class="copy" onclick="copyPaste()">
+
+        <div id="btn" onclick="getPassword()">Generate Password</div>
+    
+    <!--<div class="criteria">
+        <input type="checkbox" id="checklow" default="checked"><span>Lower case characters</span></input></br>
+        <input type="checkbox" id="checkup" default="checked"><span>Upper case characters</span></input></br>
+        <input type="checkbox" id="checknum" ><span>Numric characters</span></input></br>
+        <input type="checkbox" id="checkspecial" ><span>Special characters</span></input>
+    </div>-->
+</div>
+
+    <div class="alerti"></div>
+    <script type="text/javascript">
+            var alertBox = document.querySelector('.alerti');
+
+
+            function getPassword(){
+                var chars = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm!@#$%^&*()_+~{}|-=[]:;',./<>?";
+                /*var num = '0123456789';
+                var lowChars = "qwertyuiopasdfghjklzxcvbnm";
+                var upChars = "QWERTYUIOPASDFGHJKLZXCVBNM";
+                var special = "!@#$%^&*()_+~{}|-=[]:;',./<>?";*/
+                var passwordLength = 16;
+                var password = "";
+
+
+                for (var i = 0; i < passwordLength; i++) {
+                var randomNumber = Math.floor(Math.random() * chars.length);
+                password += chars.substring(randomNumber, randomNumber+1);
+                    
+                }
+
+             document.getElementById('password').value = password;
+             alertBox.innerHTML = "New Password Copied : <br>" + password;
+        }
+
+
+        function copyPaste(){
+            var copyText = document.getElementById('password');
+            copyText.select();
+            copyText.setSelectionRange(0,20);
+            document.execCommand("copy");
+            alertBox.classList.toggle('active');
+            setTimeout(function() {
+                alertBox.classList.toggle('active');
+            },2000)
+        }
+    </script>
+</body>
+</html>
