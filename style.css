@@ -124,20 +124,21 @@ body
 
 
 
-.criteria{
-    margin: auto;
-    justify-content: center;
-    font-size: 15px;
-    /*margin-top: 20px;*/
-}
+@media (max-width:576px) {
 
-span{
-    align-items: left;
-    justify-content: top;
-    margin-left: 55px;
-}
+    h1{
+        text-align: center;
+    }
 
-#checklow, #checkup, #checknum, #checkspecial{
-    width: 12px;
-    margin-top: 1px;
+
+    .inputBox{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #btn{
+        margin-left: 25%;
+        margin-top: 15%;
+    }
+}
 }
